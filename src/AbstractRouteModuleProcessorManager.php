@@ -5,7 +5,7 @@ abstract class AbstractRouteModuleProcessorManager implements RouteModuleProcess
 {
     protected $processors = [];
 
-    public function add($processor)
+    public function add($processor): void
     {
         foreach ($processor->getGroups() as $group) {
             $this->processors[$group] = $this->processors[$group] ?? array();
@@ -13,13 +13,13 @@ abstract class AbstractRouteModuleProcessorManager implements RouteModuleProcess
         }
     }
 
-    public function getProcessors($group = null)
+    public function getProcessors($group = null): array
     {
         $group = $group ?? $this->getDefaultGroup();
         return $this->processors[$group] ?? array();
     }
 
-    public function getDefaultGroup()
+    public function getDefaultGroup(): string
     {
         return ModuleRoutingGroups::ENTRYMODULE;
     }

@@ -3,10 +3,10 @@ namespace PoP\ModuleRouting;
 
 interface RouteModuleProcessorManagerInterface
 {
-    public function add($processor);
-    public function getProcessors($group = null);
-    public function getDefaultGroup();
-    public function getVars();
+    public function add($processor): void;
+    public function getProcessors($group = null): array;
+    public function getDefaultGroup(): string;
+    public function getVars(): array;
     public function getRouteModuleByMostAllmatchingVarsProperties(string $group = null): ?array;
 }
 
