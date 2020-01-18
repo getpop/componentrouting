@@ -7,7 +7,7 @@ class Utils {
         return $maybe_subset == self::arrayIntersectAssocRecursive($maybe_subset, $set);
     }
 
-    // This function is an implementation of a recursive `array_intersect_assoc`, so that in the RouteModuleProcessor we can ask for conditions recursively (eg: array('routing-state' => array('post-type' => 'event')))
+    // This function is an implementation of a recursive `array_intersect_assoc`, so that in the RouteModuleProcessor we can ask for conditions recursively (eg: array('routing-state' => array('postType' => 'event')))
     // Modified from https://stackoverflow.com/questions/4627076/php-question-how-to-array-intersect-assoc-recursively
     public static function arrayIntersectAssocRecursive(&$arr1, &$arr2)
     {
