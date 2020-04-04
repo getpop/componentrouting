@@ -1,6 +1,8 @@
 <?php
 namespace PoP\ModuleRouting;
 
+use PoP\ComponentModel\State\ApplicationState;
+
 abstract class AbstractRouteModuleProcessorManager implements RouteModuleProcessorManagerInterface
 {
     protected $processors = [];
@@ -32,7 +34,7 @@ abstract class AbstractRouteModuleProcessorManager implements RouteModuleProcess
         $route = $vars['route'];
 
         // // Allow to pass a custom $vars, with custom values
-        // $vars = $vars ?? Engine_Vars::getVars();
+        // $vars = $vars ?? ApplicationState::getVars();
         // $route = $route ?? Utils::getRoute();
 
         $processors = $this->getProcessors($group);
