@@ -1,7 +1,8 @@
 <?php
 namespace PoP\ModuleRouting;
 
-class Utils {
+class Utils
+{
     public static function arrayIsSubset(array $maybe_subset, array $set): bool
     {
         return $maybe_subset == self::arrayIntersectAssocRecursive($maybe_subset, $set);

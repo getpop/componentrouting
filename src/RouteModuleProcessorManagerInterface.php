@@ -9,4 +9,3 @@ interface RouteModuleProcessorManagerInterface
     public function getVars(): array;
     public function getRouteModuleByMostAllmatchingVarsProperties(string $group = null): ?array;
 }
-
