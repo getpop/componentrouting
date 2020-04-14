@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace PoP\ModuleRouting;
 
-use PoP\ComponentModel\State\ApplicationState;
-
 abstract class AbstractRouteModuleProcessorManager implements RouteModuleProcessorManagerInterface
 {
     protected $processors = [];
