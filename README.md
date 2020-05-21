@@ -20,12 +20,13 @@ Via Composer
 composer require getpop/modulerouting
 ```
 
-<!--
 ## Usage
 
+Initialize the component:
+
 ``` php
+\PoP\ModuleRouting\Component::initialize();
 ```
--->
 
 ## Standards
 
