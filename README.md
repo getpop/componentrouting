@@ -25,7 +25,9 @@ composer require getpop/modulerouting
 Initialize the component:
 
 ``` php
-\PoP\ModuleRouting\Component::initialize();
+\PoP\Root\ComponentLoader::initializeComponents([
+    \PoP\ModuleRouting\Component::class,
+]);
 ```
 
 ## Standards
