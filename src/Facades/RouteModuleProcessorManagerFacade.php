@@ -11,6 +11,10 @@ class RouteModuleProcessorManagerFacade
 {
     public static function getInstance(): RouteModuleProcessorManagerInterface
     {
-        return ContainerBuilderFactory::getInstance()->get('route_module_processor_manager');
+        /**
+         * @var RouteModuleProcessorManagerInterface
+         */
+        $service = ContainerBuilderFactory::getInstance()->get('route_module_processor_manager');
+        return $service;
     }
 }
