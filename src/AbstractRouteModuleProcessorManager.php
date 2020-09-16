@@ -6,7 +6,10 @@ namespace PoP\ModuleRouting;
 
 abstract class AbstractRouteModuleProcessorManager implements RouteModuleProcessorManagerInterface
 {
-    protected $processors = [];
+    /**
+     * @var array<string, AbstractRouteModuleProcessor>
+     */
+    protected array $processors = [];
 
     public function add($processor): void
     {
