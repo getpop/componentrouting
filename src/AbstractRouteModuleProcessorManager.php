@@ -11,14 +11,14 @@ abstract class AbstractRouteModuleProcessorManager implements RouteModuleProcess
     public function add($processor): void
     {
         foreach ($processor->getGroups() as $group) {
-            $this->processors[$group] = $this->processors[$group] ?? array();
+            $this->processors[$group] ??= [];
             $this->processors[$group][] = $processor;
         }
     }
 
     public function getProcessors($group = null): array
     {
-        $group = $group ?? $this->getDefaultGroup();
+        $group ??= $this->getDefaultGroup();
         return $this->processors[$group] ?? array();
     }
 
@@ -29,14 +29,14 @@ abstract class AbstractRouteModuleProcessorManager implements RouteModuleProcess
 
     public function getRouteModuleByMostAllmatchingVarsProperties(string $group = null): ?array
     {
-        $group = $group ?? $this->getDefaultGroup();
+        $group ??= $this->getDefaultGroup();
         $vars = $this->getVars();
         $nature = $vars['nature'];
         $route = $vars['route'];
 
         // // Allow to pass a custom $vars, with custom values
-        // $vars = $vars ?? ApplicationState::getVars();
-        // $route = $route ?? Utils::getRoute();
+        // $vars ??= ApplicationState::getVars();
+        // $route ??= Utils::getRoute();
 
         $processors = $this->getProcessors($group);
         $most_matching_module = false;
