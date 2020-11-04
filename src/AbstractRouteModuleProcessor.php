@@ -9,31 +9,34 @@ abstract class AbstractRouteModuleProcessor
     /**
      * Function to override
      */
-    public function getGroups()
+    /**
+     * @return string[]
+     */
+    public function getGroups(): array
     {
         return array();
     }
 
     /**
-     * Function to override
+     * @return array<string, array<string, array<array>>>
      */
-    public function getModulesVarsPropertiesByNatureAndRoute()
+    public function getModulesVarsPropertiesByNatureAndRoute(): array
     {
         return array();
     }
 
     /**
-     * Function to override
+     * @return array<string, array<array>>
      */
-    public function getModulesVarsPropertiesByNature()
+    public function getModulesVarsPropertiesByNature(): array
     {
         return array();
     }
 
     /**
-     * Function to override
+     * @return array<string, string[]>
      */
-    public function getModulesVarsProperties()
+    public function getModulesVarsProperties(): array
     {
         return array();
     }

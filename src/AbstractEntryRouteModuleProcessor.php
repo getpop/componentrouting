@@ -6,7 +6,10 @@ namespace PoP\ModuleRouting;
 
 abstract class AbstractEntryRouteModuleProcessor extends AbstractRouteModuleProcessor
 {
-    public function getGroups()
+    /**
+     * @return string[]
+     */
+    public function getGroups(): array
     {
         return [
             ModuleRoutingGroups::ENTRYMODULE,
