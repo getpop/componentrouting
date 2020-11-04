@@ -6,13 +6,23 @@ namespace PoP\ModuleRouting;
 
 class Utils
 {
+    /**
+     * @param mixed[] $maybe_subset
+     * @param mixed[] $set
+     */
     public static function arrayIsSubset(array $maybe_subset, array $set): bool
     {
         return $maybe_subset == self::arrayIntersectAssocRecursive($maybe_subset, $set);
     }
 
-    // This function is an implementation of a recursive `array_intersect_assoc`, so that in the RouteModuleProcessor we can ask for conditions recursively (eg: array('routing-state' => array('postType' => 'event')))
-    // Modified from https://stackoverflow.com/questions/4627076/php-question-how-to-array-intersect-assoc-recursively
+    /**
+     * This function is an implementation of a recursive `array_intersect_assoc`, so that in the RouteModuleProcessor we can ask for conditions recursively (eg: array('routing-state' => array('postType' => 'event')))
+     * Modified from https://stackoverflow.com/questions/4627076/php-question-how-to-array-intersect-assoc-recursively
+     *
+     * @param mixed $arr1
+     * @param mixed $arr2
+     * @return mixed
+     */
     public static function arrayIntersectAssocRecursive(&$arr1, &$arr2)
     {
         if (!is_array($arr1) || !is_array($arr2)) {

@@ -7,9 +7,6 @@ namespace PoP\ModuleRouting;
 abstract class AbstractRouteModuleProcessor
 {
     /**
-     * Function to override
-     */
-    /**
      * @return string[]
      */
     public function getGroups(): array

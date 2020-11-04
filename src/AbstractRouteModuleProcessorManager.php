@@ -7,11 +7,11 @@ namespace PoP\ModuleRouting;
 abstract class AbstractRouteModuleProcessorManager implements RouteModuleProcessorManagerInterface
 {
     /**
-     * @var array<string, AbstractRouteModuleProcessor>
+     * @var array<string, AbstractRouteModuleProcessor[]>
      */
     protected array $processors = [];
 
-    public function add($processor): void
+    public function add(AbstractRouteModuleProcessor $processor): void
     {
         foreach ($processor->getGroups() as $group) {
             $this->processors[$group] ??= [];
@@ -19,7 +19,10 @@ abstract class AbstractRouteModuleProcessorManager implements RouteModuleProcess
         }
     }
 
-    public function getProcessors($group = null): array
+    /**
+     * @return AbstractRouteModuleProcessor[]
+     */
+    public function getProcessors(string $group = null): array
     {
         $group ??= $this->getDefaultGroup();
         return $this->processors[$group] ?? array();
@@ -30,6 +33,9 @@ abstract class AbstractRouteModuleProcessorManager implements RouteModuleProcess
         return ModuleRoutingGroups::ENTRYMODULE;
     }
 
+    /**
+     * @return string[]|null
+     */
     public function getRouteModuleByMostAllmatchingVarsProperties(string $group = null): ?array
     {
         $group ??= $this->getDefaultGroup();
@@ -102,7 +108,7 @@ abstract class AbstractRouteModuleProcessorManager implements RouteModuleProcess
             if ($vars_properties = $processor->getModulesVarsProperties()) {
                 foreach ($vars_properties as $vars_properties_set) {
                     // Check if the all the $vars_properties are satisfied <= if all those key/values are also present in $vars
-                    $conditions = $vars_properties_set['conditions'] ?? [];
+                    $conditions = (array)$vars_properties_set['conditions'] ?? [];
                     if (Utils::arrayIsSubset($conditions, $vars)) {
                         // Check how many matches there are, and if it's the most, this is the most matching module
                         if (($matching_properties_count = count($conditions, COUNT_RECURSIVE)) >= $most_matching_properties_count) {
@@ -115,6 +121,6 @@ abstract class AbstractRouteModuleProcessorManager implements RouteModuleProcess
         }
 
         // If it is false, then return null
-        return $most_matching_module ? $most_matching_module : null;
+        return $most_matching_module ? (array)$most_matching_module : null;
     }
 }
