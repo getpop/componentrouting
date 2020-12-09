@@ -55,8 +55,8 @@ abstract class AbstractRouteModuleProcessorManager implements RouteModuleProcess
             $nature_route_vars_properties = $processor->getModulesVarsPropertiesByNatureAndRoute();
 
             // Check if this processor implements modules for this nature and route
-            if ($route_vars_properties = $nature_route_vars_properties[$nature]) {
-                if ($vars_properties = $route_vars_properties[$route]) {
+            if ($route_vars_properties = $nature_route_vars_properties[$nature] ?? null) {
+                if ($vars_properties = $route_vars_properties[$route] ?? null) {
                     foreach ($vars_properties as $vars_properties_set) {
                         // Check if the all the $vars_properties_set are satisfied <= if all those key/values are also present in $vars
                         $conditions = $vars_properties_set['conditions'] ?? [];
@@ -84,7 +84,7 @@ abstract class AbstractRouteModuleProcessorManager implements RouteModuleProcess
         // Otherwise, repeat the procedure checking for one level lower: with only the nature
         foreach ($processors as $processor) {
             $nature_vars_properties = $processor->getModulesVarsPropertiesByNature();
-            if ($vars_properties = $nature_vars_properties[$nature]) {
+            if ($vars_properties = $nature_vars_properties[$nature] ?? null) {
                 foreach ($vars_properties as $vars_properties_set) {
                     // Check if the all the $vars_properties are satisfied <= if all those key/values are also present in $vars
                     $conditions = $vars_properties_set['conditions'] ?? [];
