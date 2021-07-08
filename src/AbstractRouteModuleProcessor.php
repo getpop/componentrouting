@@ -8,7 +8,7 @@ use PoP\Hooks\HooksAPIInterface;
 
 abstract class AbstractRouteModuleProcessor
 {
-    function __construct(
+    public function __construct(
         protected HooksAPIInterface $hooksAPI
     ) {
     }
@@ -38,7 +38,7 @@ abstract class AbstractRouteModuleProcessor
     }
 
     /**
-     * @return array<string, string[]>
+     * @return array<array<string, string[]>>
      */
     public function getModulesVarsProperties(): array
     {
