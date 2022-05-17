@@ -4,22 +4,17 @@ declare(strict_types=1);
 
 namespace PoP\ModuleRouting;
 
-use PoP\Root\Component\AbstractComponent;
+use PoP\Root\Module\AbstractModule;
 
-/**
- * Initialize component
- */
-class Component extends AbstractComponent
+class Module extends AbstractModule
 {
     /**
-     * Classes from PoP components that must be initialized before this component
-     *
      * @return string[]
      */
-    public function getDependedComponentClasses(): array
+    public function getDependedModuleClasses(): array
     {
         return [
-            \PoP\Root\Component::class,
+            \PoP\Root\Module::class,
         ];
     }
 
