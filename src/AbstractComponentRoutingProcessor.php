@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PoP\ModuleRouting;
+namespace PoP\ComponentRouting;
 
 use PoP\Root\Services\BasicServiceTrait;
 
-abstract class AbstractRouteModuleProcessor
+abstract class AbstractComponentRoutingProcessor
 {
     use BasicServiceTrait;
 
@@ -21,7 +21,7 @@ abstract class AbstractRouteModuleProcessor
     /**
      * @return array<string, array<string, array<array>>>
      */
-    public function getModulesVarsPropertiesByNatureAndRoute(): array
+    public function getStatePropertiesToSelectComponentByNatureAndRoute(): array
     {
         return array();
     }
@@ -29,7 +29,7 @@ abstract class AbstractRouteModuleProcessor
     /**
      * @return array<string, array<array>>
      */
-    public function getModulesVarsPropertiesByNature(): array
+    public function getStatePropertiesToSelectComponentByNature(): array
     {
         return array();
     }
@@ -37,7 +37,7 @@ abstract class AbstractRouteModuleProcessor
     /**
      * @return array<array<string, string[]>>
      */
-    public function getModulesVarsProperties(): array
+    public function getStatePropertiesToSelectComponent(): array
     {
         return array();
     }
